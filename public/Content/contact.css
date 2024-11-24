@@ -1,102 +1,65 @@
-* {
-    padding: 0;
-    margin: 0;
+.title {
+    text-align: center;
+    font-size: 32px; /* Example of additional styling */
+    color: #111;
+    margin-bottom: 20px;
+}
+
+#contact {
+    background-color: #f9f9f9; 
+    padding: 40px;
+    max-width: 500px;
+    margin: 50px auto; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+#contact p.section__text__p1 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#contact h1.title {
+    font-size: 32px;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    width: 150%; /* Ensure all input fields take the full width of the container */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Outfit';
-    
+#contact textarea {
+    resize: vertical;
+    height: 150px;
 }
 
-.mcontainer {
-    height: 100vh;
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    gap: 40px; 
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: #999;
 }
 
-.left-side, .right-side {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    gap: 20px;
-}
-
-.left-title h2 {
-    font-weight: 600;
-    font-size: 40px;
-    margin-bottom: 5px;
-    text-align: center; 
-}
-
-.left-title hr {
-    width: 100px;
-    height: 4px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    border: none;
-    background-color: black;
-}
-
-.contact-inputs {
-    width: 400px;
-    height: 50px;
-    border: 2px solid black;
-    outline: none;
-    padding-left: 25px;
-    font-weight: 500;
-    color: black;
-    border-radius: 50px;
-}
-
-.left-side textarea {
-    width: 400px;
-    height: 145px;
-    padding-top: 15px;
-    padding-left: 25px;
-    font-weight: 500;
-    color: black;
-    border: 2px solid black;
-    border-radius: 20px;
-}
-
-.left-side button {
-    display: flex;
-    align-items: center;
-    padding: 15px 30px;
-    font-size: 16px;
+#contact button[type="submit"] {
+    background-color: #007bff; 
     color: white;
-    gap: 10px;
-    border: 2px solid black;
-    border-radius: 50px;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
     cursor: pointer;
-    background-color: transparent;
-    background: #007bff;
+    border-radius: 4px;
+    width: 100%;
+    transition: background-color 0.3s;
 }
 
-.right-side {
-    width: 500px; 
-    display: flex;
-    justify-content: center;
-    display:block; 
-}
-
-.right-side img {
-    display:flex;
-    border-radius: 70px;
-    padding: 20px;
-    justify-content: space-between;
-    align-items: center;
-    margin:auto;
-}
-
-@media(max-width:800px) {
-    .contact-inputs {
-        width:80vw;
-    }
-    .right-side {
-        display:none;
-    }
+#contact button[type="submit"]:hover {
+    background-color: #0056b3; 
 }

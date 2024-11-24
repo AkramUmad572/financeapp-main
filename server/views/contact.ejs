@@ -7,24 +7,37 @@
     <title>Document</title>
     <link rel="stylesheet" href="Content/contact.css">
 </head>
-<body>
-    <div class="mcontainer">
-        <form action="https://api.web3forms.com/submit" method="POST" class="left-side">
-            <div class="left-title">
-                <h2> Contact Us </h2>
-                <hr>
-            </div>
-            <input type="hidden" name="access_key" value="f315f8ec-8f15-40e7-92ff-ecdb73b689ff">
-            <input type="text" name="fname" placeholder="First Name" class="contact-inputs" required>
-            <input type="text" name="lname" placeholder="Last Name" class="contact-inputs" required>
-            <input type="text" name="email" placeholder="Your Email" class="contact-inputs" required>
-            <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-        <div class="right-side">
-            <img src="Assets/images/medical.jpg" alt="">
-        </div>
-    </div>
+<section id="contact">
+      <h1 class="title">Contact Us</h1>
+
+      <!-- I used a website called Formspree for the contact section,
+       it give's you a short code which I used below and incoperate it into your code.
+       This allowed me to connect my contact form to my personal emailadress so whenever
+       someone submits a form it goes directly to my email and i can connect with them their. -->
+      <form
+        action="https://formspree.io/f/xgvewypn"
+        method="POST"
+      >
+        <label>
+          First Name:
+          <input type="text" name="first" placeholder="First Name" autocomplete="off" required>
+        </label>
+        <label>
+          Last Name:
+          <input type="text" name="last" placeholder="Last Name" autocomplete="off" required>
+        </label>
+        <label>
+          Your email:
+          <input type="email" name="email" placeholder="Email Address" autocomplete="off" required>
+        </label>
+        <label>
+          Your message:
+          <textarea name="message" placeholder="Enter your message" autocomplete="off" required></textarea>
+        </label>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
 
     <% include partials/footer.ejs %>
 </body>
