@@ -5,18 +5,20 @@ let mongoose = require("mongoose");
 let Book = require("../model/book");
 const book = require("../model/book");
 let bookController = require("../controllers/book.js");
-/* Get route for the book list - Read Operation */
-/*
-GET,
-Post,
-Put --> Edit/Update
-*/
-/* Read Operation --> Get route for displaying the books list */
+
+function requireAuth(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.redirect("/login");
+  }
+  next();
+}
+
 router.get("/", async (req, res, next) => {
   try {
     const BookList = await Book.find();
     res.render("Book/list", {
-      title: "Recent Transactions",
+      title: "Books",
+      displayName: req.user ? req.user.displayName : "",
       BookList: BookList,
     });
   } catch (err) {
@@ -26,6 +28,21 @@ router.get("/", async (req, res, next) => {
     });
   }
 });
+
+router.get("/add", async (req, res, next) => {
+  try {
+    res.render("Book/add", {
+      title: "Add Book",
+      displayName: req.user ? req.user.displayName : "",
+    });
+  } catch (err) {
+    console.error(err);
+    res.render("Book/list", {
+      error: "Error on the server",
+    });
+  }
+});
+
 /* Create Operation --> Get route for displaying me the Add Page */
 router.get("/add", async (req, res, next) => {
   try {
