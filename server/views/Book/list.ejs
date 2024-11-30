@@ -7,20 +7,34 @@
         <div class="offset-md-1 col-md-8">
             <h1><%= title %></h1>
             <br>
+            <%if (typeof displayName=='string' && displayName) { %>
+
             <a href="/bookslist/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add Financial Entry
             </a>
+            <%}%>
             <table class="table table-bordered table-striped table-hover">
-                <tr class="d-flex">
+            <tr class="d-flex">
+                <%if (typeof displayName=='string' && displayName) { %>
                     <th class="text-center col-2">Account Holder Name</th>
                     <th class="text-center col-2">Account Manager Name</th>
                     <th class="text-center col-2">Transaction Date</th>
                     <th class="text-center col-3">Transaction Description</th>
                     <th class="text-center col-2">Transaction Amount</th> 
                     <th class="text-center col-3">Edit/Delete</th>
+                <% } else { %>
+                    <th class="text-center col-2">Account Holder Name</th>
+                    <th class="text-center col-2">Account Manager Name</th>
+                    <th class="text-center col-2">Transaction Date</th>
+                    <th class="text-center col-3">Transaction Description</th>
+                    <th class="text-center col-2">Transaction Amount</th> 
+                <% } %>
                 </tr>
+
+
                 <% for(let count = 0; count < BookList.length; count++) { %>
                 <tr class="d-flex">
+                <%if (typeof displayName=='string' && displayName) { %>
                     <td class="text-center col-2"><%= BookList[count].Name %></td>
                     <td class="text-center col-2"><%= BookList[count].Author %></td>
                     <td class="text-center col-2"><%= BookList[count].Published %></td>
@@ -34,6 +48,13 @@
                             <i class="fas fa-trash-alt"></i> Delete
                         </a>
                     </td>
+                    <%} else { %>
+                        <td class="text-center col-2"><%= BookList[count].Name %></td>
+                        <td class="text-center col-2"><%= BookList[count].Author %></td>
+                        <td class="text-center col-2"><%= BookList[count].Published %></td>
+                        <td class="text-center col-3"><%= BookList[count].Description %></td>
+                        <td class="text-center col-2"> <div class="input-group"> <div class="input-group-prepend"> <span class="input-group-text">$</span> </div> <input type="text" class="form-control" value="<%= BookList[count].Price %>" readonly> </div>
+                    <% } %>
                 </tr>
                 <% } %>
             </table>
