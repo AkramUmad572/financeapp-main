@@ -1,3 +1,3 @@
 # finance_webapp
 
-# I did my own css files(List and contact)
+I built a finance web application called "Smart Budgeter," which allows users to track their transactions and make better financial decisions. I engineered the app using Node.js and Express as the application frameworks. I developed the front end using EJS and CSS as the back end. As for the SQL database, I used MongoDB to track the users' transactions and JavaScript to connect the application with the SQL database.   
